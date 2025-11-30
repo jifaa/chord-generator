@@ -7,28 +7,27 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-   <!-- Navigation -->
-<nav class="main-nav">
-    <div class="nav-container">
-        <a href="/index.php" class="nav-logo">
-            <span class="logo-icon">🎵</span>
-            <span class="logo-text">Chord Map</span>
-        </a>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <ul class="nav-menu" id="navMenu">
-            <li><a href="/index.php" class="nav-link"><span class="nav-icon">🏠</span> Beranda</a></li>
-            <li><a href="/page/explorer.php" class="nav-link"><span class="nav-icon">🗺️</span> Explorer</a></li>
-            <li><a href="/page/generator.php" class="nav-link"><span class="nav-icon">🎲</span> Generator</a></li>
-            <li><a href="/page/builder.php" class="nav-link"><span class="nav-icon">🔨</span> Builder</a></li>
-            <!-- <li><a href="/page/player.php" class="nav-link"><span class="nav-icon">🎹</span> Player</a></li> -->
-            <li><a href="/page/reference.php" class="nav-link"><span class="nav-icon">📚</span> Referensi</a></li>
-        </ul>
-    </div>
-</nav>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">🎵</span>
+                <span class="logo-text">Chord Map</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link active"><span class="nav-icon">🏠</span> Beranda</a></li>
+                <li><a href="page/explorer.html" class="nav-link"><span class="nav-icon">🗺️</span> Explorer</a></li>
+                <li><a href="page/generator.html" class="nav-link"><span class="nav-icon">🎲</span> Generator</a></li>
+                <li><a href="page/builder.html" class="nav-link"><span class="nav-icon">🔨</span> Builder</a></li>
+                <li><a href="page/reference.html" class="nav-link"><span class="nav-icon">📚</span> Referensi</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <div class="container">
         <!-- Hero Section -->
@@ -38,8 +37,8 @@
                 <p class="hero-subtitle">Visualisasi Graf Chord Progressions untuk Berbagai Genre Musik</p>
                 <p class="hero-description">Pelajari, eksplorasi, dan ciptakan chord progression yang indah dengan bantuan visualisasi graf interaktif</p>
                 <div class="hero-buttons">
-                    <a href="html/explorer.html" class="hero-btn primary">🗺️ Mulai Eksplorasi</a>
-                    <a href="html/generator.html" class="hero-btn secondary">🎲 Generate Progression</a>
+                    <a href="page/explorer.html" class="hero-btn primary">🗺️ Mulai Eksplorasi</a>
+                    <a href="page/generator.html" class="hero-btn secondary">🎲 Generate Progression</a>
                 </div>
             </div>
         </header>
@@ -49,27 +48,27 @@
             <section class="features-section">
                 <h2>✨ Fitur Utama</h2>
                 <div class="features-grid">
-                    <a href="html/explorer.html" class="feature-card">
+                    <a href="page/explorer.html" class="feature-card">
                         <div class="feature-icon">🗺️</div>
                         <h3>Chord Explorer</h3>
                         <p>Visualisasi peta graf akor untuk 8 genre musik berbeda. Lihat hubungan antar chord dan pola yang umum digunakan.</p>
                     </a>
-                    <a href="html/generator.html" class="feature-card">
+                    <a href="page/generator.html" class="feature-card">
                         <div class="feature-icon">🎲</div>
                         <h3>Chord Generator</h3>
                         <p>Generate chord progression secara otomatis dengan berbagai mode: Random Walk, Weighted, atau Classic Pattern.</p>
                     </a>
-                    <a href="html/builder.html" class="feature-card">
+                    <a href="page/builder.html" class="feature-card">
                         <div class="feature-icon">🔨</div>
                         <h3>Interactive Builder</h3>
                         <p>Bangun chord progression step-by-step dengan saran AI yang menyesuaikan dengan genre pilihan Anda.</p>
                     </a>
-                    <a href="html/player.html" class="feature-card">
+                    <a href="page/player.html" class="feature-card">
                         <div class="feature-icon">🎹</div>
                         <h3>Chord Player</h3>
                         <p>Mainkan dan dengarkan chord secara interaktif. Atur volume dan tempo sesuai keinginan.</p>
                     </a>
-                    <a href="html/reference.html" class="feature-card">
+                    <a href="page/reference.html" class="feature-card">
                         <div class="feature-icon">📚</div>
                         <h3>Referensi & Teori</h3>
                         <p>Pelajari chord progression populer dan teori musik dasar termasuk fungsi chord dan cadence.</p>
@@ -108,35 +107,35 @@
             <section class="genre-showcase">
                 <h2>🎸 Genre yang Tersedia</h2>
                 <div class="genre-grid">
-                    <a href="html/explorer.html" class="genre-card" data-genre="pop">
+                    <a href="page/explorer.html" class="genre-card" data-genre="pop">
                         <span class="genre-emoji">🎤</span>
                         <span class="genre-name">Pop</span>
                     </a>
-                    <a href="html/explorer.html" class="genre-card" data-genre="rock">
+                    <a href="page/explorer.html" class="genre-card" data-genre="rock">
                         <span class="genre-emoji">🎸</span>
                         <span class="genre-name">Rock</span>
                     </a>
-                    <a href="html/explorer.html" class="genre-card" data-genre="jazz">
+                    <a href="page/explorer.html" class="genre-card" data-genre="jazz">
                         <span class="genre-emoji">🎷</span>
                         <span class="genre-name">Jazz</span>
                     </a>
-                    <a href="html/explorer.html" class="genre-card" data-genre="blues">
+                    <a href="page/explorer.html" class="genre-card" data-genre="blues">
                         <span class="genre-emoji">🎺</span>
                         <span class="genre-name">Blues</span>
                     </a>
-                    <a href="html/explorer.html" class="genre-card" data-genre="country">
+                    <a href="page/explorer.html" class="genre-card" data-genre="country">
                         <span class="genre-emoji">🤠</span>
                         <span class="genre-name">Country</span>
                     </a>
-                    <a href="html/explorer.html" class="genre-card" data-genre="rnb">
+                    <a href="page/explorer.html" class="genre-card" data-genre="rnb">
                         <span class="genre-emoji">🎹</span>
                         <span class="genre-name">R&B/Soul</span>
                     </a>
-                    <a href="html/explorer.html" class="genre-card" data-genre="edm">
+                    <a href="page/explorer.html" class="genre-card" data-genre="edm">
                         <span class="genre-emoji">🎧</span>
                         <span class="genre-name">EDM</span>
                     </a>
-                    <a href="html/explorer.html" class="genre-card" data-genre="classical">
+                    <a href="page/explorer.html" class="genre-card" data-genre="classical">
                         <span class="genre-emoji">🎻</span>
                         <span class="genre-name">Classical</span>
                     </a>

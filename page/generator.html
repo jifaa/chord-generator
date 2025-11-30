@@ -7,7 +7,27 @@
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-   <?php include '../nav.php'; ?>
+   <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-icon">🎵</span>
+                <span class="logo-text">Chord Map</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html" class="nav-link"><span class="nav-icon">🏠</span> Beranda</a></li>
+                <li><a href="explorer.html" class="nav-link"><span class="nav-icon">🗺️</span> Explorer</a></li>
+                <li><a href="generator.html" class="nav-link active"><span class="nav-icon">🎲</span> Generator</a></li>
+                <li><a href="builder.html" class="nav-link"><span class="nav-icon">🔨</span> Builder</a></li>
+                <li><a href="reference.html" class="nav-link"><span class="nav-icon">📚</span> Referensi</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <div class="container">
         <!-- Page Header -->
