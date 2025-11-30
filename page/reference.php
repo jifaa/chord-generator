@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referensi - Peta Perkembangan Akor</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <?php include '../nav.php'; ?>
+
+    <div class="container">
+        <!-- Page Header -->
+        <header class="page-header">
+            <h1>📚 Referensi & Teori</h1>
+            <p class="page-description">Pelajari chord progression populer dan teori musik dasar</p>
+        </header>
+
+        <main>
+            <!-- Common Progressions Reference -->
+            <section class="reference-section">
+                <h2>🎵 Progression Populer</h2>
+                <div class="progression-cards" id="progressionCards">
+                    <!-- Diisi oleh JavaScript -->
+                </div>
+            </section>
+
+            <!-- Theory Section -->
+            <section class="theory-section">
+                <h2>📖 Teori Graf dalam Musik</h2>
+                <div class="theory-content">
+                    <div class="theory-card">
+                        <h3>Graf Berarah (Directed Graph)</h3>
+                        <p>Dalam musik, urutan akor sangat penting. Gerakan dari <strong>G7 → C</strong> (Dominant ke Tonic) memiliki tarikan gravitasi yang kuat, seperti "pulang ke rumah".</p>
+                    </div>
+                    <div class="theory-card">
+                        <h3>Graf Berbobot (Weighted Graph)</h3>
+                        <p>Tidak semua perpindahan memiliki peluang sama. Dari akor <strong>C</strong>:
+                        <br>• Ke G (V): 40% - Sangat umum
+                        <br>• Ke Am (vi): 30% - Emosional
+                        <br>• Ke F (IV): 20% - Standar
+                        <br>• Ke Dm (ii): 10% - Jazzy</p>
+                    </div>
+                    <div class="theory-card">
+                        <h3>Adjacency List</h3>
+                        <p>Graf akor direpresentasikan sebagai daftar ketetanggaan dimana setiap node (akor) memiliki daftar node tujuan yang valid.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chord Functions -->
+            <section class="theory-section">
+                <h2>🎼 Fungsi Akor</h2>
+                <div class="theory-content">
+                    <div class="theory-card tonic-card">
+                        <h3>Tonic (I)</h3>
+                        <p>Chord "rumah" yang memberikan rasa stabil dan selesai. Progression biasanya dimulai dan diakhiri dengan tonic. Contoh: C dalam kunci C Mayor.</p>
+                    </div>
+                    <div class="theory-card subdominant-card">
+                        <h3>Subdominant (IV)</h3>
+                        <p>Chord yang memberikan gerakan menjauhi tonic. Sering digunakan untuk transisi dan membangun tensi ringan. Contoh: F dalam kunci C Mayor.</p>
+                    </div>
+                    <div class="theory-card dominant-card">
+                        <h3>Dominant (V)</h3>
+                        <p>Chord dengan tensi tertinggi yang "menarik" kembali ke tonic. V-I adalah resolusi paling kuat dalam musik. Contoh: G dalam kunci C Mayor.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Roman Numerals -->
+            <section class="theory-section">
+                <h2>🔢 Roman Numerals dalam Musik</h2>
+                <div class="roman-numeral-table">
+                    <table class="info-table">
+                        <thead>
+                            <tr>
+                                <th>Numeral</th>
+                                <th>Fungsi</th>
+                                <th>Kualitas</th>
+                                <th>Contoh (C Mayor)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>I</strong></td>
+                                <td>Tonic</td>
+                                <td>Mayor</td>
+                                <td>C</td>
+                            </tr>
+                            <tr>
+                                <td><strong>ii</strong></td>
+                                <td>Supertonic</td>
+                                <td>Minor</td>
+                                <td>Dm</td>
+                            </tr>
+                            <tr>
+                                <td><strong>iii</strong></td>
+                                <td>Mediant</td>
+                                <td>Minor</td>
+                                <td>Em</td>
+                            </tr>
+                            <tr>
+                                <td><strong>IV</strong></td>
+                                <td>Subdominant</td>
+                                <td>Mayor</td>
+                                <td>F</td>
+                            </tr>
+                            <tr>
+                                <td><strong>V</strong></td>
+                                <td>Dominant</td>
+                                <td>Mayor</td>
+                                <td>G</td>
+                            </tr>
+                            <tr>
+                                <td><strong>vi</strong></td>
+                                <td>Submediant</td>
+                                <td>Minor</td>
+                                <td>Am</td>
+                            </tr>
+                            <tr>
+                                <td><strong>vii°</strong></td>
+                                <td>Leading Tone</td>
+                                <td>Diminished</td>
+                                <td>Bdim</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Cadence Types -->
+            <section class="theory-section">
+                <h2>🎭 Jenis Cadence</h2>
+                <div class="theory-content">
+                    <div class="theory-card">
+                        <h3>Authentic Cadence (V-I)</h3>
+                        <p>Cadence paling kuat dan conclusive. Memberikan rasa "selesai" yang sempurna. Sangat umum di akhir lagu atau section.</p>
+                        <div class="cadence-example">G → C</div>
+                    </div>
+                    <div class="theory-card">
+                        <h3>Plagal Cadence (IV-I)</h3>
+                        <p>Disebut juga "Amen Cadence" karena sering digunakan di musik gereja. Lebih lembut dari authentic cadence.</p>
+                        <div class="cadence-example">F → C</div>
+                    </div>
+                    <div class="theory-card">
+                        <h3>Deceptive Cadence (V-vi)</h3>
+                        <p>Mengejutkan pendengar dengan tidak kembali ke tonic. Digunakan untuk memperpanjang progression atau memberikan twist.</p>
+                        <div class="cadence-example">G → Am</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+    </div>
+
+    <script src="../js/chordData.js"></script>
+    <script src="../js/audioEngine.js"></script>
+    <script src="../js/graphRenderer.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>

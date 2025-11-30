@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chord Map - Peta Perkembangan Akor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <?php include 'nav.php'; ?>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <header class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">🎵 Peta Perkembangan Akor</h1>
+                <p class="hero-subtitle">Visualisasi Graf Chord Progressions untuk Berbagai Genre Musik</p>
+                <p class="hero-description">Pelajari, eksplorasi, dan ciptakan chord progression yang indah dengan bantuan visualisasi graf interaktif</p>
+                <div class="hero-buttons">
+                    <a href="html/explorer.html" class="hero-btn primary">🗺️ Mulai Eksplorasi</a>
+                    <a href="html/generator.html" class="hero-btn secondary">🎲 Generate Progression</a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Features Section -->
+            <section class="features-section">
+                <h2>✨ Fitur Utama</h2>
+                <div class="features-grid">
+                    <a href="html/explorer.html" class="feature-card">
+                        <div class="feature-icon">🗺️</div>
+                        <h3>Chord Explorer</h3>
+                        <p>Visualisasi peta graf akor untuk 8 genre musik berbeda. Lihat hubungan antar chord dan pola yang umum digunakan.</p>
+                    </a>
+                    <a href="html/generator.html" class="feature-card">
+                        <div class="feature-icon">🎲</div>
+                        <h3>Chord Generator</h3>
+                        <p>Generate chord progression secara otomatis dengan berbagai mode: Random Walk, Weighted, atau Classic Pattern.</p>
+                    </a>
+                    <a href="html/builder.html" class="feature-card">
+                        <div class="feature-icon">🔨</div>
+                        <h3>Interactive Builder</h3>
+                        <p>Bangun chord progression step-by-step dengan saran AI yang menyesuaikan dengan genre pilihan Anda.</p>
+                    </a>
+                    <a href="html/player.html" class="feature-card">
+                        <div class="feature-icon">🎹</div>
+                        <h3>Chord Player</h3>
+                        <p>Mainkan dan dengarkan chord secara interaktif. Atur volume dan tempo sesuai keinginan.</p>
+                    </a>
+                    <a href="html/reference.html" class="feature-card">
+                        <div class="feature-icon">📚</div>
+                        <h3>Referensi & Teori</h3>
+                        <p>Pelajari chord progression populer dan teori musik dasar termasuk fungsi chord dan cadence.</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Quick Start Section -->
+            <section class="quickstart-section">
+                <h2>🚀 Mulai Cepat</h2>
+                <div class="quickstart-steps">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Pilih Genre</h3>
+                        <p>Mulai dengan memilih genre musik favorit Anda di halaman Explorer</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>Eksplorasi Graf</h3>
+                        <p>Lihat peta chord dan hubungan antar akor dalam genre tersebut</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Generate atau Build</h3>
+                        <p>Gunakan Generator untuk progression otomatis atau Builder untuk kontrol penuh</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h3>Dengarkan & Simpan</h3>
+                        <p>Play progression hasil kreasi Anda dan copy untuk digunakan dalam proyek musik</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Genre Showcase -->
+            <section class="genre-showcase">
+                <h2>🎸 Genre yang Tersedia</h2>
+                <div class="genre-grid">
+                    <a href="html/explorer.html" class="genre-card" data-genre="pop">
+                        <span class="genre-emoji">🎤</span>
+                        <span class="genre-name">Pop</span>
+                    </a>
+                    <a href="html/explorer.html" class="genre-card" data-genre="rock">
+                        <span class="genre-emoji">🎸</span>
+                        <span class="genre-name">Rock</span>
+                    </a>
+                    <a href="html/explorer.html" class="genre-card" data-genre="jazz">
+                        <span class="genre-emoji">🎷</span>
+                        <span class="genre-name">Jazz</span>
+                    </a>
+                    <a href="html/explorer.html" class="genre-card" data-genre="blues">
+                        <span class="genre-emoji">🎺</span>
+                        <span class="genre-name">Blues</span>
+                    </a>
+                    <a href="html/explorer.html" class="genre-card" data-genre="country">
+                        <span class="genre-emoji">🤠</span>
+                        <span class="genre-name">Country</span>
+                    </a>
+                    <a href="html/explorer.html" class="genre-card" data-genre="rnb">
+                        <span class="genre-emoji">🎹</span>
+                        <span class="genre-name">R&B/Soul</span>
+                    </a>
+                    <a href="html/explorer.html" class="genre-card" data-genre="edm">
+                        <span class="genre-emoji">🎧</span>
+                        <span class="genre-name">EDM</span>
+                    </a>
+                    <a href="html/explorer.html" class="genre-card" data-genre="classical">
+                        <span class="genre-emoji">🎻</span>
+                        <span class="genre-name">Classical</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="about-section">
+                <h2>📖 Tentang Aplikasi</h2>
+                <div class="about-content">
+                    <div class="about-card">
+                        <h3>🎯 Tujuan</h3>
+                        <p>Aplikasi ini dirancang untuk membantu musisi, composer, dan penggemar musik dalam memahami dan menciptakan chord progression yang harmonis. Dengan visualisasi graf yang intuitif, Anda dapat melihat bagaimana chord-chord saling terhubung dalam berbagai genre musik.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>📊 Berbasis Data</h3>
+                        <p>Setiap graf chord progression dibangun berdasarkan analisis ribuan lagu populer. Bobot pada setiap edge menunjukkan seberapa sering perpindahan chord tersebut digunakan dalam musik nyata.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>🎓 Edukatif</h3>
+                        <p>Selain sebagai alat kreasi, aplikasi ini juga berfungsi sebagai media pembelajaran teori musik. Pelajari tentang fungsi chord, cadence, dan bagaimana graf digunakan untuk merepresentasikan harmoni musik.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+    </div>
+
+    <script>
+        // Navigation toggle for mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    navToggle.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

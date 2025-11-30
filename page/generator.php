@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chord Generator - Peta Perkembangan Akor</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+   <?php include '../nav.php'; ?>
+
+    <div class="container">
+        <!-- Page Header -->
+        <header class="page-header">
+            <h1>🎲 Chord Generator</h1>
+            <p class="page-description">Generate chord progression secara otomatis berdasarkan genre dan mode</p>
+        </header>
+
+        <main>
+            <!-- Genre Selection for Generator -->
+            <section class="genre-section">
+                <h2>🎸 Pilih Genre</h2>
+                <div class="genre-buttons">
+                    <button class="genre-btn active" data-genre="pop">🎤 Pop</button>
+                    <button class="genre-btn" data-genre="rock">🎸 Rock</button>
+                    <button class="genre-btn" data-genre="jazz">🎷 Jazz</button>
+                    <button class="genre-btn" data-genre="blues">🎺 Blues</button>
+                    <button class="genre-btn" data-genre="country">🤠 Country</button>
+                    <button class="genre-btn" data-genre="rnb">🎹 R&B/Soul</button>
+                    <button class="genre-btn" data-genre="edm">🎧 EDM</button>
+                    <button class="genre-btn" data-genre="classical">🎻 Classical</button>
+                </div>
+            </section>
+
+            <!-- Generator Controls -->
+            <section class="generator-section">
+                <h2>⚙️ Pengaturan Generator</h2>
+                <div class="generator-controls">
+                    <div class="control-group">
+                        <label for="keySelectGen">Kunci:</label>
+                        <select id="keySelectGen" title="Pilih kunci dasar">
+                            <option value="C">C Mayor</option>
+                            <option value="G">G Mayor</option>
+                            <option value="D">D Mayor</option>
+                            <option value="A">A Mayor</option>
+                            <option value="E">E Mayor</option>
+                            <option value="F">F Mayor</option>
+                            <option value="Bb">Bb Mayor</option>
+                            <option value="Am">A Minor</option>
+                            <option value="Em">E Minor</option>
+                            <option value="Dm">D Minor</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label for="barCount">Jumlah Bar:</label>
+                        <input type="number" id="barCount" min="4" max="32" value="8">
+                    </div>
+                    <div class="control-group">
+                        <label for="generatorMode">Mode:</label>
+                        <select id="generatorMode" title="Pilih mode generator">
+                            <option value="random">Random Walk</option>
+                            <option value="weighted">Weighted (Berbobot)</option>
+                            <option value="classic">Classic Pattern</option>
+                        </select>
+                    </div>
+                    <button id="generateBtn" class="generate-btn">🎲 Generate Progression</button>
+                </div>
+
+                <div class="generated-progression">
+                    <h3>🎵 Hasil Progression:</h3>
+                    <div id="progressionResult" class="progression-display">
+                        <p class="placeholder-text">Klik tombol "Generate Progression" untuk membuat chord progression</p>
+                    </div>
+                    <div id="progressionAnalysis" class="progression-analysis">
+                        <!-- Analisis akan muncul di sini -->
+                    </div>
+                </div>
+
+                <div class="generator-actions">
+                    <button id="playProgressionBtn" class="play-btn" disabled>▶️ Play Progression</button>
+                    <button id="stopBtn" class="stop-btn" disabled>⏹️ Stop</button>
+                    <button id="copyProgressionBtn" class="action-btn copy-btn" disabled>📋 Copy</button>
+                </div>
+            </section>
+
+            <!-- Mode Explanation -->
+            <section class="theory-section">
+                <h2>📖 Penjelasan Mode Generator</h2>
+                <div class="theory-content">
+                    <div class="theory-card">
+                        <h3>🎲 Random Walk</h3>
+                        <p>Memilih chord berikutnya secara acak dari semua chord yang valid berdasarkan graf. Cocok untuk eksplorasi dan menemukan kombinasi baru yang tidak terduga.</p>
+                    </div>
+                    <div class="theory-card">
+                        <h3>⚖️ Weighted (Berbobot)</h3>
+                        <p>Memilih chord berdasarkan probabilitas bobot pada graf. Chord yang lebih umum digunakan memiliki peluang lebih tinggi untuk dipilih. Menghasilkan progression yang lebih natural.</p>
+                    </div>
+                    <div class="theory-card">
+                        <h3>🎼 Classic Pattern</h3>
+                        <p>Menggunakan pola progression klasik yang sudah terbukti populer dalam genre tersebut. Cocok untuk membuat lagu dengan struktur yang familiar.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/chordData.js"></script>
+    <script src="../js/audioEngine.js"></script>
+    <script src="../js/graphRenderer.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>
