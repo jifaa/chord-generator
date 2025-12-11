@@ -79,6 +79,11 @@ class ChordProgressionApp {
                         }
                     });
                     
+                    // Update graf dengan nama chord baru berdasarkan kunci
+                    if (this.graphRenderer) {
+                        this.updateGenreDisplay();
+                    }
+                    
                     if (document.getElementById('genreInfo')) {
                         this.updateGenreDisplay();
                     }
@@ -137,9 +142,14 @@ class ChordProgressionApp {
     updateGenreDisplay() {
         const genreData = ChordData.GENRE_CHORD_GRAPHS[this.currentGenre];
         
-        // Update graf (jika ada)
+        // Update graf (jika ada) dengan translasi ke nama chord
         if (this.graphRenderer) {
-            this.graphRenderer.updateGraph(genreData.graph);
+            // Buat fungsi translasi untuk mengkonversi numeral ke nama chord
+            const translateFunc = (numeral) => {
+                const translated = this.translateProgressionToKey([numeral]);
+                return translated[0] || numeral;
+            };
+            this.graphRenderer.updateGraph(genreData.graph, translateFunc);
         }
         
         // Update info section (jika ada)
@@ -176,7 +186,7 @@ class ChordProgressionApp {
         const diatonicChords = ChordData.getDiatonicChords(this.currentKey);
         
         return numerals.map(numeral => {
-            // Handle special numerals
+            // Handle special numerals directly
             if (diatonicChords[numeral]) {
                 return diatonicChords[numeral];
             }
@@ -193,21 +203,75 @@ class ChordProgressionApp {
                 return chord;
             }
             
-            // Handle seventh chords
-            if (numeral.includes('7') || numeral.includes('maj7')) {
-                const baseNumeral = numeral.replace('7', '').replace('maj', '').replace('dim', '°');
-                let baseChord = diatonicChords[baseNumeral] || diatonicChords[baseNumeral.toUpperCase()] || numeral;
+            // Handle seventh chords (Imaj7, ii7, V7, vi7, IV7, iii7, etc.)
+            if (numeral.includes('7') || numeral.includes('maj7') || numeral.includes('dim7')) {
+                // Extract base numeral (remove all suffixes)
+                let baseNumeral = numeral
+                    .replace('maj7', '')
+                    .replace('dim7', '')
+                    .replace('7', '')
+                    .replace('°', '');
                 
+                // Try to find in diatonic chords
+                let baseChord = diatonicChords[baseNumeral] || 
+                               diatonicChords[baseNumeral.toUpperCase()] || 
+                               diatonicChords[baseNumeral.toLowerCase()];
+                
+                // If not found, try to calculate from numeral
+                if (!baseChord) {
+                    baseChord = this.numeralToChord(baseNumeral);
+                }
+                
+                // Add appropriate suffix
                 if (numeral.includes('maj7')) {
-                    return baseChord.replace('m', '') + 'maj7';
+                    return baseChord.replace('m', '').replace('dim', '') + 'maj7';
+                } else if (numeral.includes('dim7')) {
+                    return baseChord.replace('m', '').replace('dim', '') + 'dim7';
                 } else if (numeral.includes('7')) {
                     return baseChord + '7';
                 }
             }
             
-            // Fallback: return as is
+            // Handle diminished chords (viio, vii°)
+            if (numeral.includes('°') || numeral.includes('o')) {
+                const baseNumeral = numeral.replace('°', '').replace('o', '');
+                let baseChord = diatonicChords[baseNumeral + '°'] || 
+                               this.numeralToChord(baseNumeral);
+                if (!baseChord.includes('dim')) {
+                    baseChord = baseChord.replace('m', '') + 'dim';
+                }
+                return baseChord;
+            }
+            
+            // Fallback: try to calculate chord from numeral
+            const calculatedChord = this.numeralToChord(numeral);
+            if (calculatedChord !== numeral) {
+                return calculatedChord;
+            }
+            
+            // Final fallback: return as is
             return numeral;
         });
+    }
+
+    // Convert roman numeral to chord name
+    numeralToChord(numeral) {
+        const scale = ChordData.getScale(this.currentKey.replace('m', ''), this.currentKey.includes('m') ? 'minor' : 'major');
+        const numeralMap = { 'I': 0, 'II': 1, 'III': 2, 'IV': 3, 'V': 4, 'VI': 5, 'VII': 6,
+                            'i': 0, 'ii': 1, 'iii': 2, 'iv': 3, 'v': 4, 'vi': 5, 'vii': 6 };
+        
+        const cleanNumeral = numeral.replace(/[^IViv]/g, '');
+        const isMinor = numeral === numeral.toLowerCase() || numeral.includes('m');
+        
+        const scaleIndex = numeralMap[cleanNumeral] || numeralMap[cleanNumeral.toUpperCase()];
+        if (scaleIndex === undefined) return numeral;
+        
+        let chord = scale[scaleIndex];
+        if (isMinor && !chord.includes('m')) {
+            chord += 'm';
+        }
+        
+        return chord;
     }
 
     getAlteredChord(numeral, semitones) {
@@ -895,13 +959,6 @@ class InteractiveChordBuilder {
             btn.classList.add('highly-recommended');
         } else if (options.isRecommended) {
             btn.classList.add('recommended');
-        }
-        
-        if (options.weight) {
-            const badge = document.createElement('span');
-            badge.className = 'weight-badge';
-            badge.textContent = `${options.weight}%`;
-            btn.appendChild(badge);
         }
         
         btn.addEventListener('click', () => {

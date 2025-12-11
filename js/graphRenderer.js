@@ -86,7 +86,7 @@ class GraphRenderer {
     }
 
     // Buat layout graf menggunakan force-directed layout sederhana
-    calculateLayout(graph) {
+    calculateLayout(graph, translateFunc = null) {
         const chordNames = Object.keys(graph);
         const nodeCount = chordNames.length;
         const centerX = this.canvas.width / 2;
@@ -102,9 +102,12 @@ class GraphRenderer {
             const x = centerX + radius * Math.cos(angle);
             const y = centerY + radius * Math.sin(angle);
             
+            // Translate numeral ke nama chord jika translateFunc tersedia
+            const displayName = translateFunc ? translateFunc(chord) : chord;
+            
             this.nodes.push({
                 id: chord,
-                name: chord,
+                name: displayName,
                 x: x,
                 y: y,
                 radius: 35,
@@ -211,11 +214,6 @@ class GraphRenderer {
         
         // Draw arrow head
         this.drawArrowHead(endX, endY, angle, lineWidth);
-        
-        // Draw weight label jika weight besar
-        if (weight >= 30) {
-            this.drawWeightLabel(midX, midY, weight);
-        }
     }
 
     drawArrowHead(x, y, angle, lineWidth) {
@@ -316,8 +314,8 @@ class GraphRenderer {
     }
 
     // Update graph dengan data baru
-    updateGraph(graphData) {
-        this.calculateLayout(graphData);
+    updateGraph(graphData, translateFunc = null) {
+        this.calculateLayout(graphData, translateFunc);
         this.render();
     }
 

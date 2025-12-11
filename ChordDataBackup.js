@@ -153,60 +153,50 @@ function getDiatonicChords(key) {
 
 // ============================================
 // GRAF AKOR UNTUK SETIAP GENRE
-// Bobot berdasarkan Circle of Fifths Distance
-// Jarak 0=100, 1=86, 2=71, 3=57, 4=43, 5=29, 6=29
 // ============================================
 
 const GENRE_CHORD_GRAPHS = {
     // ============================================
     // POP - The "Axis of Awesome" Style
-    // Dalam kunci C: I=C, ii=Dm, iii=Em, IV=F, V=G, vi=Am
-    // Circle positions (Major): C=0, G=1, D=2, A=3, E=4, F=11
     // ============================================
     pop: {
         name: "Pop",
-        description: "Graf pop berupa siklus sederhana yang berulang. Progresi I-V-vi-IV adalah 'formula ajaib' yang digunakan dalam ratusan lagu hit. Bobot berdasarkan jarak Circle of Fifths.",
+        description: "Graf pop berupa siklus sederhana yang berulang. Progresi I-V-vi-IV adalah 'formula ajaib' yang digunakan dalam ratusan lagu hit.",
         characteristics: [
             "Siklus 4 akor yang berulang (I-V-vi-IV)",
             "Sangat mudah diingat dan dinyanyikan",
             "Emosional tapi tetap ceria",
-            "Bobot transisi berdasarkan Circle of Fifths"
+            "Cocok untuk melodi sederhana"
         ],
         graph: {
-            // I (C) -> V(G)=jarak 1=86, vi(Am)=jarak 3=57, IV(F)=jarak 1=86, ii(Dm)=jarak 2=71
             'I': { 
                 targets: ['V', 'vi', 'IV', 'ii'], 
-                weights: [29, 19, 29, 23],  // Normalized dari [86, 57, 86, 71] = 300 -> %
+                weights: [35, 30, 25, 10],
                 function: 'tonic'
             },
-            // V (G) -> vi(Am)=jarak 2=71, I(C)=jarak 1=86, IV(F)=jarak 2=71
             'V': { 
                 targets: ['vi', 'I', 'IV'], 
-                weights: [31, 38, 31],  // Normalized dari [71, 86, 71] = 228
+                weights: [40, 35, 25],
                 function: 'dominant'
             },
-            // vi (Am) -> IV(F)=jarak 2=71, V(G)=jarak 2=71, I(C)=jarak 3=57
             'vi': { 
                 targets: ['IV', 'V', 'I'], 
-                weights: [36, 36, 28],  // Normalized dari [71, 71, 57] = 199
+                weights: [45, 30, 25],
                 function: 'minor'
             },
-            // IV (F) -> I(C)=jarak 1=86, V(G)=jarak 2=71, vi(Am)=jarak 2=71, ii(Dm)=jarak 3=57
             'IV': { 
                 targets: ['I', 'V', 'vi', 'ii'], 
-                weights: [30, 25, 25, 20],  // Normalized dari [86, 71, 71, 57] = 285
+                weights: [35, 30, 25, 10],
                 function: 'subdominant'
             },
-            // ii (Dm) -> V(G)=jarak 1=86, IV(F)=jarak 3=57
             'ii': { 
                 targets: ['V', 'IV'], 
-                weights: [60, 40],  // Normalized dari [86, 57] = 143
+                weights: [60, 40],
                 function: 'minor'
             },
-            // iii (Em) -> vi(Am)=jarak 1=86, IV(F)=jarak 4=43
             'iii': { 
                 targets: ['vi', 'IV'], 
-                weights: [67, 33],  // Normalized dari [86, 43] = 129
+                weights: [50, 50],
                 function: 'minor'
             }
         },
@@ -220,52 +210,45 @@ const GENRE_CHORD_GRAPHS = {
 
     // ============================================
     // ROCK - Power Chord Driven
-    // bVII dalam C = Bb, Circle position = 10
     // ============================================
     rock: {
         name: "Rock",
-        description: "Rock menggunakan progresi yang kuat dengan penekanan pada akor power chord dan gerakan root note yang tegas. Bobot berdasarkan Circle of Fifths.",
+        description: "Rock menggunakan progresi yang kuat dengan penekanan pada akor power chord dan gerakan root note yang tegas.",
         characteristics: [
             "Banyak menggunakan I, IV, V",
             "Sering menggunakan bVII (flat seven)",
             "Power chords (root + fifth)",
-            "Bobot transisi berdasarkan Circle of Fifths"
+            "Gerakan chromatic untuk transisi"
         ],
         graph: {
-            // I (C=0) -> IV(F=11)=jarak 1=86, V(G=1)=jarak 1=86, bVII(Bb=10)=jarak 2=71, vi(Am)=jarak 3=57
             'I': { 
                 targets: ['IV', 'V', 'bVII', 'vi'], 
-                weights: [29, 29, 23, 19],  // Normalized dari [86, 86, 71, 57] = 300
+                weights: [30, 30, 25, 15],
                 function: 'tonic'
             },
-            // IV (F=11) -> I(C=0)=jarak 1=86, V(G=1)=jarak 2=71, bVII(Bb=10)=jarak 1=86
             'IV': { 
                 targets: ['I', 'V', 'bVII'], 
-                weights: [35, 29, 36],  // Normalized dari [86, 71, 86] = 243
+                weights: [40, 35, 25],
                 function: 'subdominant'
             },
-            // V (G=1) -> I(C=0)=jarak 1=86, IV(F=11)=jarak 2=71, bVII(Bb=10)=jarak 3=57
             'V': { 
                 targets: ['I', 'IV', 'bVII'], 
-                weights: [40, 33, 27],  // Normalized dari [86, 71, 57] = 214
+                weights: [50, 30, 20],
                 function: 'dominant'
             },
-            // bVII (Bb=10) -> IV(F=11)=jarak 1=86, I(C=0)=jarak 2=71, V(G=1)=jarak 3=57
             'bVII': { 
                 targets: ['IV', 'I', 'V'], 
-                weights: [40, 33, 27],  // Normalized dari [86, 71, 57] = 214
+                weights: [40, 35, 25],
                 function: 'seventh'
             },
-            // vi (Am) -> IV(F)=jarak 2=71, V(G)=jarak 2=71, I(C)=jarak 3=57
             'vi': { 
                 targets: ['IV', 'V', 'I'], 
-                weights: [36, 36, 28],  // Normalized dari [71, 71, 57] = 199
+                weights: [40, 35, 25],
                 function: 'minor'
             },
-            // ii (Dm=2) -> V(G=1)=jarak 1=86, IV(F=11)=jarak 3=57
             'ii': { 
                 targets: ['V', 'IV'], 
-                weights: [60, 40],  // Normalized dari [86, 57] = 143
+                weights: [55, 45],
                 function: 'minor'
             }
         },
@@ -279,76 +262,65 @@ const GENRE_CHORD_GRAPHS = {
 
     // ============================================
     // JAZZ - Complex ii-V-I with Substitutions
-    // Menggunakan extended chords, jarak dihitung dari root note
     // ============================================
     jazz: {
         name: "Jazz",
-        description: "Jazz menggunakan progresi kompleks dengan seventh chords, extended chords, dan substitusi tritone. Bobot berdasarkan Circle of Fifths.",
+        description: "Jazz menggunakan progresi kompleks dengan seventh chords, extended chords, dan substitusi tritone. Graf jazz sangat berliku dengan banyak jalur alternatif.",
         characteristics: [
             "Pola dasar ii-V-I (Dm7-G7-Cmaj7)",
             "Tritone substitution (G7 → Db7 → C)",
             "Extended chords (9th, 11th, 13th)",
-            "Bobot transisi berdasarkan Circle of Fifths"
+            "Secondary dominants dan modal interchange"
         ],
         graph: {
-            // Imaj7 (C=0) -> ii7(D=2)=jarak 2=71, IV7(F=11)=jarak 1=86, vi7(A=3)=jarak 3=57, #IVdim7(F#=6)=jarak 6=29
             'Imaj7': { 
                 targets: ['ii7', 'IV7', 'vi7', '#IVdim7'], 
-                weights: [29, 35, 24, 12],  // Normalized dari [71, 86, 57, 29] = 243
+                weights: [35, 25, 25, 15],
                 function: 'tonic'
             },
-            // ii7 (D=2) -> V7(G=1)=jarak 1=86, bII7(Db=7)=jarak 5=29
             'ii7': { 
                 targets: ['V7', 'bII7'], 
-                weights: [75, 25],  // Normalized dari [86, 29] = 115
+                weights: [70, 30],
                 function: 'minor'
             },
-            // V7 (G=1) -> Imaj7(C=0)=jarak 1=86, vi7(A=3)=jarak 2=71, bII7(Db=7)=jarak 6=29
             'V7': { 
                 targets: ['Imaj7', 'vi7', 'bII7'], 
-                weights: [46, 38, 16],  // Normalized dari [86, 71, 29] = 186
+                weights: [50, 30, 20],
                 function: 'dominant'
             },
-            // vi7 (A=3) -> ii7(D=2)=jarak 1=86, IV7(F=11)=jarak 4=43, V7(G=1)=jarak 2=71
             'vi7': { 
                 targets: ['ii7', 'IV7', 'V7'], 
-                weights: [43, 22, 35],  // Normalized dari [86, 43, 71] = 200
+                weights: [45, 30, 25],
                 function: 'minor'
             },
-            // IV7 (F=11) -> V7(G=1)=jarak 2=71, iii7(E=4)=jarak 5=29, bVII7(Bb=10)=jarak 1=86
             'IV7': { 
-                targets: ['V7', 'iii7', 'bVII7'], 
-                weights: [38, 16, 46],  // Normalized dari [71, 29, 86] = 186
+                targets: ['iii7', 'V7', 'bVII7'], 
+                weights: [35, 40, 25],
                 function: 'subdominant'
             },
-            // iii7 (E=4) -> vi7(A=3)=jarak 1=86, bIII7(Eb=9)=jarak 5=29
             'iii7': { 
                 targets: ['vi7', 'bIII7'], 
-                weights: [75, 25],  // Normalized dari [86, 29] = 115
+                weights: [60, 40],
                 function: 'minor'
             },
-            // bII7 (Db=7) -> Imaj7(C=0)=jarak 5=29 (tritone sub resolves to I)
             'bII7': { 
                 targets: ['Imaj7'], 
                 weights: [100],
                 function: 'seventh'
             },
-            // #IVdim7 (F#=6) -> V7(G=1)=jarak 5=29, Imaj7(C=0)=jarak 6=29
             '#IVdim7': { 
                 targets: ['V7', 'Imaj7'], 
-                weights: [50, 50],  // Normalized dari [29, 29] = 58
+                weights: [60, 40],
                 function: 'seventh'
             },
-            // bVII7 (Bb=10) -> Imaj7(C=0)=jarak 2=71, IV7(F=11)=jarak 1=86
             'bVII7': { 
                 targets: ['Imaj7', 'IV7'], 
-                weights: [45, 55],  // Normalized dari [71, 86] = 157
+                weights: [55, 45],
                 function: 'seventh'
             },
-            // bIII7 (Eb=9) -> bVII7(Bb=10)=jarak 1=86, ii7(D=2)=jarak 5=29
             'bIII7': { 
                 targets: ['bVII7', 'ii7'], 
-                weights: [75, 25],  // Normalized dari [86, 29] = 115
+                weights: [50, 50],
                 function: 'seventh'
             }
         },
@@ -362,52 +334,45 @@ const GENRE_CHORD_GRAPHS = {
 
     // ============================================
     // BLUES - 12-Bar Blues Structure
-    // Semua chord dominan 7th
     // ============================================
     blues: {
         name: "Blues",
-        description: "Blues menggunakan struktur 12-bar yang ikonik dengan dominant 7th chords. Bobot berdasarkan Circle of Fifths.",
+        description: "Blues menggunakan struktur 12-bar yang ikonik dengan dominant 7th chords. Graf blues sederhana tapi sangat ekspresif.",
         characteristics: [
             "12-bar structure klasik",
             "Semua akor menggunakan dominant 7th",
             "Turnaround di akhir progression",
-            "Bobot transisi berdasarkan Circle of Fifths"
+            "Blue notes dan pentatonic scale"
         ],
         graph: {
-            // I7 (C=0) -> IV7(F=11)=jarak 1=86, V7(G=1)=jarak 1=86
             'I7': { 
                 targets: ['IV7', 'V7'], 
-                weights: [50, 50],  // Normalized dari [86, 86] = 172
+                weights: [60, 40],
                 function: 'tonic'
             },
-            // IV7 (F=11) -> I7(C=0)=jarak 1=86, V7(G=1)=jarak 2=71, #IVdim7(F#=6)=jarak 5=29
             'IV7': { 
                 targets: ['I7', 'V7', '#IVdim7'], 
-                weights: [46, 38, 16],  // Normalized dari [86, 71, 29] = 186
+                weights: [50, 35, 15],
                 function: 'subdominant'
             },
-            // V7 (G=1) -> I7(C=0)=jarak 1=86, IV7(F=11)=jarak 2=71
             'V7': { 
-                targets: ['I7', 'IV7'], 
-                weights: [55, 45],  // Normalized dari [86, 71] = 157
+                targets: ['IV7', 'I7'], 
+                weights: [40, 60],
                 function: 'dominant'
             },
-            // #IVdim7 (F#=6) -> V7(G=1)=jarak 5=29, I7(C=0)=jarak 6=29
             '#IVdim7': { 
                 targets: ['V7', 'I7'], 
-                weights: [50, 50],  // Normalized dari [29, 29] = 58
+                weights: [70, 30],
                 function: 'seventh'
             },
-            // ii7 (D=2) -> V7(G=1)=jarak 1=86
             'ii7': { 
                 targets: ['V7'], 
                 weights: [100],
                 function: 'minor'
             },
-            // vi7 (A=3) -> ii7(D=2)=jarak 1=86, V7(G=1)=jarak 2=71
             'vi7': { 
                 targets: ['ii7', 'V7'], 
-                weights: [55, 45],  // Normalized dari [86, 71] = 157
+                weights: [50, 50],
                 function: 'minor'
             }
         },
@@ -423,48 +388,42 @@ const GENRE_CHORD_GRAPHS = {
     // ============================================
     country: {
         name: "Country",
-        description: "Country music sering menggunakan progresi yang 'honest' dan straightforward. Bobot berdasarkan Circle of Fifths.",
+        description: "Country music sering menggunakan progresi yang 'honest' dan straightforward dengan penekanan pada storytelling.",
         characteristics: [
             "Progresi I-IV-V yang polos",
             "Sering menggunakan sus chords",
             "Pedal steel guitar-friendly progressions",
-            "Bobot transisi berdasarkan Circle of Fifths"
+            "Walking bass lines"
         ],
         graph: {
-            // I (C=0) -> IV(F=11)=jarak 1=86, V(G=1)=jarak 1=86, vi(Am)=jarak 3=57, ii(Dm)=jarak 2=71
             'I': { 
                 targets: ['IV', 'V', 'vi', 'ii'], 
-                weights: [29, 29, 19, 23],  // Normalized dari [86, 86, 57, 71] = 300
+                weights: [35, 30, 20, 15],
                 function: 'tonic'
             },
-            // IV (F=11) -> I(C=0)=jarak 1=86, V(G=1)=jarak 2=71, ii(Dm)=jarak 3=57
             'IV': { 
                 targets: ['I', 'V', 'ii'], 
-                weights: [40, 33, 27],  // Normalized dari [86, 71, 57] = 214
+                weights: [45, 40, 15],
                 function: 'subdominant'
             },
-            // V (G=1) -> I(C=0)=jarak 1=86, IV(F=11)=jarak 2=71, vi(Am)=jarak 2=71
             'V': { 
                 targets: ['I', 'IV', 'vi'], 
-                weights: [38, 31, 31],  // Normalized dari [86, 71, 71] = 228
+                weights: [55, 30, 15],
                 function: 'dominant'
             },
-            // vi (Am) -> IV(F)=jarak 2=71, ii(Dm)=jarak 1=86, V(G)=jarak 2=71
             'vi': { 
                 targets: ['IV', 'ii', 'V'], 
-                weights: [31, 38, 31],  // Normalized dari [71, 86, 71] = 228
+                weights: [40, 35, 25],
                 function: 'minor'
             },
-            // ii (Dm=2) -> V(G=1)=jarak 1=86, IV(F=11)=jarak 3=57
             'ii': { 
                 targets: ['V', 'IV'], 
-                weights: [60, 40],  // Normalized dari [86, 57] = 143
+                weights: [65, 35],
                 function: 'minor'
             },
-            // iii (Em=4) -> vi(Am)=jarak 1=86, IV(F=11)=jarak 5=29
             'iii': { 
                 targets: ['vi', 'IV'], 
-                weights: [75, 25],  // Normalized dari [86, 29] = 115
+                weights: [55, 45],
                 function: 'minor'
             }
         },
@@ -481,12 +440,12 @@ const GENRE_CHORD_GRAPHS = {
     // ============================================
     rnb: {
         name: "R&B/Soul",
-        description: "R&B menggunakan progresi yang smooth dengan extended chords. Bobot berdasarkan Circle of Fifths.",
+        description: "R&B menggunakan progresi yang smooth dengan extended chords dan chromatic movements untuk menciptakan groove yang sensual.",
         characteristics: [
             "Extended chords (7th, 9th, 11th)",
             "Chromatic bass movement",
             "Gospel-influenced progressions",
-            "Bobot transisi berdasarkan Circle of Fifths"
+            "Neo-soul complex harmonies"
         ],
         graph: {
             'Imaj7': { 

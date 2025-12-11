@@ -2116,21 +2116,7 @@ section h2 {
     margin-top: 25px;
 }
 
-/* ============================================
-   FOOTER - Subtle Glow
-   ============================================ */
-footer {
-    text-align: center;
-    padding: 40px;
-    color: var(--text-secondary);
-    border-top: 2px solid rgba(139, 92, 246, 0.2);
-    margin-top: 40px;
-    background: linear-gradient(180deg, transparent, rgba(139, 92, 246, 0.05));
-}
 
-footer p {
-    font-size: 1rem;
-}
 
 /* ============================================
    RESPONSIVE DESIGN
