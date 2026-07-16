@@ -1,0 +1,327 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-15T00:00:00.000Z",
+  "title": "Design System: Chord Map",
+  "extensions": {
+    "colorMeta": {
+      "violet": {
+        "role": "primary",
+        "displayName": "Gravity Violet",
+        "canonical": "oklch(62% 0.22 280)",
+        "tonalRamp": [
+          "oklch(35% 0.18 280)",
+          "oklch(45% 0.20 280)",
+          "oklch(55% 0.22 280)",
+          "oklch(62% 0.22 280)",
+          "oklch(70% 0.20 280)",
+          "oklch(78% 0.18 280)",
+          "oklch(85% 0.15 280)",
+          "oklch(92% 0.10 280)"
+        ]
+      },
+      "cyan": {
+        "role": "secondary",
+        "displayName": "Tension Cyan",
+        "canonical": "oklch(82% 0.19 205)",
+        "tonalRamp": [
+          "oklch(50% 0.15 205)",
+          "oklch(60% 0.17 205)",
+          "oklch(70% 0.19 205)",
+          "oklch(82% 0.19 205)",
+          "oklch(88% 0.17 205)",
+          "oklch(92% 0.14 205)",
+          "oklch(95% 0.10 205)",
+          "oklch(97% 0.06 205)"
+        ]
+      },
+      "amber": {
+        "role": "tertiary",
+        "displayName": "Amber Accent",
+        "canonical": "oklch(80% 0.17 70)",
+        "tonalRamp": [
+          "oklch(55% 0.14 70)",
+          "oklch(65% 0.16 70)",
+          "oklch(75% 0.17 70)",
+          "oklch(80% 0.17 70)",
+          "oklch(85% 0.15 70)",
+          "oklch(90% 0.12 70)",
+          "oklch(93% 0.08 70)",
+          "oklch(96% 0.05 70)"
+        ]
+      },
+      "rose": {
+        "role": "tertiary",
+        "displayName": "Rose Signal",
+        "canonical": "oklch(72% 0.18 15)",
+        "tonalRamp": [
+          "oklch(45% 0.15 15)",
+          "oklch(55% 0.17 15)",
+          "oklch(65% 0.18 15)",
+          "oklch(72% 0.18 15)",
+          "oklch(80% 0.16 15)",
+          "oklch(85% 0.13 15)",
+          "oklch(90% 0.10 15)",
+          "oklch(94% 0.06 15)"
+        ]
+      },
+      "mint": {
+        "role": "tertiary",
+        "displayName": "Mint Success",
+        "canonical": "oklch(80% 0.16 160)",
+        "tonalRamp": [
+          "oklch(50% 0.13 160)",
+          "oklch(60% 0.15 160)",
+          "oklch(70% 0.16 160)",
+          "oklch(80% 0.16 160)",
+          "oklch(85% 0.14 160)",
+          "oklch(90% 0.11 160)",
+          "oklch(94% 0.08 160)",
+          "oklch(97% 0.04 160)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Void Ink",
+        "canonical": "oklch(8% 0.02 290)",
+        "tonalRamp": [
+          "oklch(6% 0.015 290)",
+          "oklch(8% 0.02 290)",
+          "oklch(10% 0.025 290)",
+          "oklch(12% 0.03 290)",
+          "oklch(15% 0.035 290)",
+          "oklch(18% 0.04 290)",
+          "oklch(22% 0.045 290)",
+          "oklch(26% 0.05 290)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Surface",
+        "canonical": "oklch(12% 0.025 290)",
+        "tonalRamp": [
+          "oklch(8% 0.02 290)",
+          "oklch(12% 0.025 290)",
+          "oklch(15% 0.03 290)",
+          "oklch(18% 0.035 290)",
+          "oklch(22% 0.04 290)",
+          "oklch(26% 0.045 290)",
+          "oklch(30% 0.05 290)",
+          "oklch(35% 0.055 290)"
+        ]
+      },
+      "ink-100": {
+        "role": "neutral",
+        "displayName": "Ink Light",
+        "canonical": "oklch(95% 0.01 290)",
+        "tonalRamp": [
+          "oklch(70% 0.02 290)",
+          "oklch(78% 0.015 290)",
+          "oklch(85% 0.012 290)",
+          "oklch(92% 0.008 290)",
+          "oklch(95% 0.01 290)",
+          "oklch(96% 0.008 290)",
+          "oklch(97% 0.005 290)",
+          "oklch(98% 0.003 290)"
+        ]
+      },
+      "ink-500": {
+        "role": "neutral",
+        "displayName": "Ink Muted",
+        "displayName": "Ink Muted",
+        "canonical": "oklch(55% 0.03 290)",
+        "tonalRamp": [
+          "oklch(40% 0.025 290)",
+          "oklch(45% 0.028 290)",
+          "oklch(50% 0.03 290)",
+          "oklch(55% 0.03 290)",
+          "oklch(60% 0.028 290)",
+          "oklch(65% 0.025 290)",
+          "oklch(70% 0.02 290)",
+          "oklch(75% 0.015 290)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headlines only. Space Grotesk at maximum scale."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles, page headers."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card titles, feature headings within sections."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Descriptions, explanatory text. Max 65ch line length."
+      },
+      "label": {
+        "displayName": "Label/Mono",
+        "purpose": "Musical notation, technical identifiers. Always JetBrains Mono."
+      }
+    },
+    "shadows": [
+      {
+        "name": "glow-violet",
+        "value": "0 0 40px rgba(124,92,252,0.5)",
+        "purpose": "Primary button glow. Signals energy, not depth."
+      },
+      {
+        "name": "glow-violet-subtle",
+        "value": "0 0 24px rgba(124,92,252,0.35)",
+        "purpose": "Secondary glow for hover states and active elements."
+      },
+      {
+        "name": "glow-cyan-subtle",
+        "value": "0 0 20px rgba(34,211,238,0.3)",
+        "purpose": "Cyan hover glow for secondary interactive elements."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Default easing for entrances and reveals. Exponential ease-out."
+      },
+      {
+        "name": "duration-fast",
+        "value": "150ms",
+        "purpose": "Micro-interactions: hover states, button feedback."
+      },
+      {
+        "name": "duration-normal",
+        "value": "250ms",
+        "purpose": "Standard transitions: panel expansion, navigation."
+      },
+      {
+        "name": "duration-slow",
+        "value": "400ms",
+        "purpose": "Orchestrated entrances, page transitions."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary CTA. Gradient violet background, white text, full rounded, violet glow on hover.",
+      "html": "<button class=\"ds-btn-primary\">Generate Progression</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(to right, #7c5cfc, #6947e0); color: #f4f2fb; font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-weight: 600; font-size: 1rem; padding: 16px 48px; border: none; border-radius: 9999px; cursor: pointer; transition: transform 150ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 150ms ease; box-shadow: 0 0 40px rgba(124,92,252,0.5); } .ds-btn-primary:hover { transform: scale(1.02); box-shadow: 0 0 50px rgba(124,92,252,0.65); } .ds-btn-primary:active { transform: scale(0.98); } .ds-btn-primary:focus-visible { outline: 2px solid #22d3ee; outline-offset: 2px; } .ds-btn-primary:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Secondary CTA. Transparent background, border, cyan hover state.",
+      "html": "<button class=\"ds-btn-secondary\">Explore Graph</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: transparent; color: #c7c1e0; font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-weight: 600; font-size: 1rem; padding: 16px 48px; border: 1px solid #2a2440; border-radius: 9999px; cursor: pointer; transition: color 150ms ease, border-color 150ms ease, transform 150ms ease; } .ds-btn-secondary:hover { color: #22d3ee; border-color: rgba(34,211,238,0.5); transform: scale(1.01); } .ds-btn-secondary:focus-visible { outline: 2px solid #22d3ee; outline-offset: 2px; } .ds-btn-secondary:disabled { opacity: 0.4; cursor: not-allowed; }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Feature card with hover elevation. Surface background, surface-line border, violet border on hover.",
+      "html": "<div class=\"ds-card\"><h3 class=\"ds-card-title\">Chord Generator</h3><p class=\"ds-card-body\">Generate chord progression secara otomatis.</p></div>",
+      "css": ".ds-card { background: #15121f; border: 1px solid #2a2440; border-radius: 16px; padding: 24px; transition: background 200ms ease, border-color 200ms ease, transform 200ms cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; } .ds-card:hover { background: #1e1a30; border-color: rgba(167,139,250,0.5); transform: translateY(-4px); } .ds-card-title { font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-weight: 600; font-size: 1.125rem; color: #f4f2fb; margin: 0 0 8px 0; } .ds-card-body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; color: #c7c1e0; margin: 0; line-height: 1.6; }"
+    },
+    {
+      "name": "Input Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Text input with surface background, surface-line border, violet focus state.",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"C major\" />",
+      "css": ".ds-input { background: #15121f; color: #f4f2fb; border: 1px solid #2a2440; border-radius: 8px; padding: 10px 12px; font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; outline: none; transition: border-color 150ms ease; width: 100%; box-sizing: border-box; } .ds-input::placeholder { color: #8c85ad; } .ds-input:focus { border-color: #a78bfa; } .ds-input:focus-visible { outline: 2px solid #22d3ee; outline-offset: 2px; border-color: transparent; } .ds-input:disabled { opacity: 0.5; cursor: not-allowed; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Fixed header navigation with backdrop blur, active gradient state.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-item ds-nav-active\" href=\"/generator\">🎲 Generator</a><a class=\"ds-nav-item\" href=\"/builder\">🔨 Builder</a></nav>",
+      "css": ".ds-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; background: rgba(10,9,18,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(42,36,64,0.7); } .ds-nav-item { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 9999px; font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; color: #c7c1e0; text-decoration: none; transition: color 150ms ease; } .ds-nav-item:hover { color: #f4f2fb; } .ds-nav-active { position: relative; z-index: 1; color: #f4f2fb; } .ds-nav-active::before { content: ''; position: absolute; inset: 0; border-radius: 9999px; background: linear-gradient(to right, #7c5cfc, #6947e0); box-shadow: 0 0 24px rgba(124,92,252,0.45); z-index: -1; }"
+    },
+    {
+      "name": "Genre Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Selectable genre tag with emoji indicator.",
+      "html": "<button class=\"ds-chip\">🎸 Pop</button>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 9999px; font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; cursor: pointer; transition: all 150ms ease; background: #15121f; color: #c7c1e0; border: 1px solid #2a2440; } .ds-chip:hover { border-color: rgba(34,211,238,0.5); color: #22d3ee; } .ds-chip-selected { background: #7c5cfc; color: #f4f2fb; border-color: transparent; box-shadow: 0 0 20px rgba(124,92,252,0.4); } .ds-chip-selected:hover { background: #6947e0; }"
+    },
+    {
+      "name": "Panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Grouping container for related controls. Signature Chord Map component.",
+      "html": "<div class=\"ds-panel\"><div class=\"ds-panel-header\"><span>🎸</span><h3>Pilih Genre</h3></div><div class=\"ds-panel-content\">Content here</div></div>",
+      "css": ".ds-panel { background: #15121f; border: 1px solid #2a2440; border-radius: 16px; overflow: hidden; } .ds-panel-header { display: flex; align-items: center; gap: 8px; padding: 16px 20px; border-bottom: 1px solid #2a2440; font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-size: 1rem; font-weight: 600; color: #f4f2fb; } .ds-panel-content { padding: 20px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Harmonic Cosmos",
+    "overview": "Chord Map exists in abstract harmonic space — a dark void where chord relationships become visible geometry. Nodes float like celestial bodies; transitions glow like gravitational pulls. The design draws from astronomical visualization: controlled darkness punctuated by precise, luminous accents. This is not a music production tool or a music notation app. It is a map, and maps work best when the terrain is legible against the background.\n\nThe palette is built on two forces: gravity (violet — the tonic, home, resolution) and tension (cyan — the dominant, movement, energy). Amber, rose, and mint appear as tertiary signals — genre context, alerts, success states — but never compete with the primary axis. The dark ink background is not just aesthetic; it is the canvas on which the graph becomes legible.\n\nKey characteristics: Dark cosmic void with controlled luminous accents; Violet as gravity/home, cyan as tension/movement; Generative Three.js hero sets the creative tone while functional pages stay focused; Tonal layering instead of shadows; Typography mixes Space Grotesk (geometric confidence) with Inter (readable body) and JetBrains Mono (technical labels).",
+    "keyCharacteristics": [
+      "Dark cosmic void with controlled luminous accents",
+      "Violet as gravity/home, cyan as tension/movement",
+      "Generative Three.js hero sets the creative tone; functional pages stay focused",
+      "Tonal layering instead of shadows — no depth on flat surfaces",
+      "Space Grotesk for headings, Inter for body, JetBrains Mono for technical labels"
+    ],
+    "rules": [
+      {
+        "name": "The Gravity Rule",
+        "body": "Violet appears where the user should feel settled — home chords, primary actions, active states. Its use is earned, not ambient.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tension Rule",
+        "body": "Cyan appears where there is forward motion — secondary actions, hover states, data accents. It never dominates a full surface; it highlights what moves.",
+        "section": "colors"
+      },
+      {
+        "name": "The One-Tenth Rule",
+        "body": "Cyan, amber, rose, and mint together occupy ≤10% of any given screen. Their rarity is the point — when they appear, they signal something specific.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mono Label Rule",
+        "body": "Chord symbols, Roman numerals, and musical notation always use JetBrains Mono. Mixing serif or sans-serif for musical notation breaks the technical precision the tool projects.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "Surfaces are flat at rest. The only shadow behavior is the glow effect on primary buttons, which is luminosity, not depth.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use violet as the primary action color — it signals home, resolution, primary flow",
+      "Do use cyan for secondary actions and hover states on non-primary elements",
+      "Do keep functional pages focused — the Three.js hero is for the landing page only",
+      "Do use JetBrains Mono for all musical notation (Roman numerals, chord symbols, genre keys)",
+      "Do use tonal layering for depth — surface-hi on hover, surface for resting state",
+      "Do use the full rounded button shape — it signals approachability",
+      "Do maintain WCAG A contrast ratios"
+    ],
+    "donts": [
+      "Don't use violet or cyan as decorative fills on non-interactive elements",
+      "Don't add shadows — tonal layering IS the depth system",
+      "Don't use border-left or border-right as colored accent stripes",
+      "Don't use gradient text (background-clip: text) for headings",
+      "Don't repeat the hero's Three.js canvas on sub-pages",
+      "Don't use Press Start 2P for functional UI text",
+      "Don't create card grids with identical patterns throughout",
+      "Don't use generic AI-generated UI patterns"
+    ]
+  }
+}

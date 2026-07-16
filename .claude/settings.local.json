@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(npx playwright *)",
+      "Bash(node /tmp/browser-check.mjs)",
+      "Bash(npm list *)",
+      "Bash(node browser-check.mjs)",
+      "Bash(rm -f browser-check.mjs)",
+      "Bash(npm uninstall *)",
+      "Bash(set \"IMPECCABLE_CRITIQUE_META={\\\\\"target\\\\\":\\\\\"all pages\\\\\",\\\\\"total_score\\\\\":25,\\\\\"p0_count\\\\\":2,\\\\\"p1_count\\\\\":2}\")",
+      "Bash(node .claude/skills/impeccable/scripts/critique-storage.mjs write all-pages \"C:\\\\Users\\\\Akhma\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--Project-AplikasiWeb-Next-JS-chord-generator-next\\\\9dcd93f3-dd9a-4c58-9dd2-089db698c1d4\\\\critique-temp-body.md\")",
+      "Bash(node .claude/skills/impeccable/scripts/critique-storage.mjs trend all-pages 5)",
+      "Bash(del *)",
+      "Bash(npx tsc *)",
+      "Bash(npx next *)",
+      "Bash(npx eslint *)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PROJECT_DIR}/.claude/skills/impeccable/scripts/hook.mjs\"",
+            "timeout": 5,
+            "statusMessage": "Checking UI changes"
+          }
+        ]
+      }
+    ]
+  },
+  "description": "Impeccable design detector: runs after Edit/Write/MultiEdit on UI files and surfaces findings as system reminders."
+}

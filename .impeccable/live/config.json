@@ -1,0 +1,6 @@
+{
+  "files": ["app/**/*.tsx", "app/**/*.ts", "app/**/*.jsx", "app/**/*.js"],
+  "insertBefore": "</body>",
+  "commentSyntax": "jsx",
+  "cspChecked": true
+}
